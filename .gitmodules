@@ -1,0 +1,6 @@
+[submodule "boiler_MENU"]
+	path = boiler_MENU
+	url = https://github.com/yeezynico/boiler_MENU.git
+[submodule "back_rails_users_api"]
+	path = back_rails_users_api
+	url = https://github.com/Gambizzz/back_rails_users_api.git
