@@ -26,7 +26,7 @@
   font-style: normal;
 }
 
-
+/* Variables*/
 $bg-light-font-night: #FCF6F2;
 $bg-night: #191970;
 $font-light: #2454FF;
@@ -34,6 +34,7 @@ $title-icons-light: #FE4C00;
 $title-icons-night: #FFC40C;
 $font: "Raleway", sans-serif;
 $title-font: 'Nectarine';
+
 
 /* START OPENDYS STYLES */
 body.dyslexic {
@@ -45,9 +46,9 @@ body.dyslexic {
   font-size: 50%;
 }
 
-.log.dyslexic {
-  font-family: 'OpenDyslexic';
-}
+
+
+
 /* END OPENDYS STYLES */
 
 
@@ -58,6 +59,7 @@ body {
     font-family: $font;
     margin: 1.2%;
 }
+
 
 /* NIGHT THEME STYLES */
 html.nuit body {
@@ -150,7 +152,6 @@ li {
   padding: 10px;
   border-bottom: 1px solid $font-light;
 }
-
 /* END SIDEBAR */
 
 
@@ -294,24 +295,47 @@ li {
   }
 }
 
+
 .btn-dropdown {
   padding-right: 10%;
 }
 
 .log {
   color: $title-icons-light;
-  background-color: transparent;
+  background-color: transparent !important;
   border: none;
   box-shadow: none;
-  font-family: $font;
   font-size: 1em;
 }
 
 .log:hover {
-  background-color: transparent;
+  background-color: transparent !important;
   border: none;
   color: $title-icons-light;
 }
+
+.log:focus,
+.log:active {
+  background-color: transparent !important;
+  border: none;
+  color: $title-icons-light !important;
+  box-shadow: none;
+}
+
+.drop-box {
+  border-color: $font-light;
+  background-color: $bg-light-font-night;
+}
+
+.drop-text {
+  color: $font-light;
+}
+
+.drop-text:hover {
+  background-color: $title-icons-light;
+  color: $bg-light-font-night;
+}
+
 
 .theme-toggler {
   display: flex;

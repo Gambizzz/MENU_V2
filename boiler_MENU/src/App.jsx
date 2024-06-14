@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.scss'
+import { useAtom } from 'jotai';
+import { nightModeAtom, dyslexicModeAtom } from './atoms';
+import './index.scss';
 import Restaurants from './pages/restaurant/listeRestaurants';
 import Log from './pages/forms/login';
 import Sign from './pages/forms/signup';
@@ -14,9 +16,9 @@ import Contact from './pages/footer/contact';
 import Details from './pages/restaurant/detailsRestaurant';
 import Sidebar from './components/sidebar';
 
-
 function App() {
-  const [isNightMode, setIsNightMode] = useState(false);
+  const [isNightMode, setIsNightMode] = useAtom(nightModeAtom);
+  const [isDyslexicMode, setIsDyslexicMode] = useAtom(dyslexicModeAtom);
 
   const toggleTheme = () => {
     setIsNightMode(!isNightMode);
@@ -25,39 +27,40 @@ function App() {
   };
 
   const toggleDyslexic = () => {
+    setIsDyslexicMode(!isDyslexicMode);
     const body = document.getElementsByTagName('body')[0];
     body.classList.toggle('dyslexic');
   };
 
   return (
-      <BrowserRouter>
-        <Sidebar isNightMode={isNightMode} toggleDyslexic={toggleDyslexic} />
+    <BrowserRouter>
+      <Sidebar isNightMode={isNightMode} isDyslexicMode={isDyslexicMode} toggleDyslexic={toggleDyslexic} />
 
-        <header>
-          <Nav isNightMode={isNightMode} toggleTheme={toggleTheme} toggleDyslexic={toggleDyslexic} />
-        </header>
+      <header>
+        <Nav isNightMode={isNightMode} toggleTheme={toggleTheme} toggleDyslexic={toggleDyslexic} />
+      </header>
 
-        <Routes>
-          {/* routes NAV */}
-          <Route path='/restaurants' element={<Restaurants />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Log />} />
-          <Route path='/signup' element={<Sign />} />
-          {/* routes Footer */}
-          <Route path='/concept' element={<Concept />} />
-          <Route path='/team' element={<Team />} />
-          <Route path='/contact' element={<Contact />} />
-          {/* routes detailsRestaurant */}
-          <Route path='/details' element={<Details />} />
-          {/* route edit profile */}
-          <Route path='/edit' element={<Edit />} />
-        </Routes>
+      <Routes>
+        {/* routes NAV */}
+        <Route path='/restaurants' element={<Restaurants />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Log />} />
+        <Route path='/signup' element={<Sign />} />
+        {/* routes Footer */}
+        <Route path='/concept' element={<Concept />} />
+        <Route path='/team' element={<Team />} />
+        <Route path='/contact' element={<Contact />} />
+        {/* routes detailsRestaurant */}
+        <Route path='/details' element={<Details />} />
+        {/* route edit profile */}
+        <Route path='/edit' element={<Edit />} />
+      </Routes>
 
-        <footer>
-          <Footer isNightMode={isNightMode} />
-        </footer>
-      </BrowserRouter>
-  )
+      <footer>
+        <Footer isNightMode={isNightMode} />
+      </footer>
+    </BrowserRouter>
+  );
 }
 
 export default App;

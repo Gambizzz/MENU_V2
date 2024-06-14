@@ -2,6 +2,8 @@ import React from 'react';
 import '../index.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { nightModeAtom } from '../atoms';
 import { FaInstagram } from "react-icons/fa";
 import { FiFacebook } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
@@ -10,8 +12,9 @@ import { RiGooglePlayLine } from "react-icons/ri";
 import logoFootJour from '../../src/assets/images/logo-footer-jour.svg';
 import logoFootNuit from '../../src/assets/images/logo-footer-nuit.svg';
 
-const Footer = ({ isNightMode }) => {
+const Footer = () => {
   const { t } = useTranslation();
+  const [isNightMode] = useAtom(nightModeAtom);
 
   return (
     <div className='footer'>

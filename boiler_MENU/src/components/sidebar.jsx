@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAtom } from 'jotai';
+import { nightModeAtom, dyslexicModeAtom } from '../atoms';
 import '../index.scss';
 
-const Sidebar = ({ isNightMode, toggleDyslexic }) => {
+const Sidebar = ({ toggleDyslexic }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const { t } = useTranslation();
-  const [isDyslexicMode, setIsDyslexicMode] = useState(false);
+  const [isDyslexicMode, setIsDyslexicMode] = useAtom(dyslexicModeAtom);
+  const [isNightMode] = useAtom(nightModeAtom);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
 
-  const toggleDyslexicMode = () => {
-    setIsDyslexicMode(!isDyslexicMode);
-    const body = document.getElementsByTagName('html')[0];
-    body.classList.toggle('dyslexic');
-  };
+ 
 
   return (
     <div className="app-container">
@@ -25,7 +24,7 @@ const Sidebar = ({ isNightMode, toggleDyslexic }) => {
           <li> {t('colorBlind')} </li>
         </ul>
       </div>
-      <button onClick={() => {toggleSidebar(); toggleDyslexicMode();}} className={`toggle-btn ${isNightMode ? 'nuit' : ''} ${isDyslexicMode ? 'dyslexic' : ''}`}>
+      <button onClick={toggleSidebar} className={`toggle-btn ${isNightMode ? 'nuit' : ''} ${isDyslexicMode ? 'dyslexic' : ''}`}>
         {t('access')}
       </button>
     </div>
