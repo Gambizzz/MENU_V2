@@ -68,8 +68,8 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className='reset-form'>
-      <h1 className='reset-title'> {t('resetPassword')} </h1>
+    <div>
+      <h1 className="title-pages"> {t('resetPassword')} </h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="password"> {t('newPassword')} </label>

@@ -6,7 +6,7 @@ const Contact = () => {
 
     return(
         <>
-        <h1> {t('contactTitle')} </h1>
+        <h1 className="title-pages"> {t('contactTitle')} </h1>
         </>
     )
 }

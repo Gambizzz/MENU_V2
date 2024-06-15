@@ -47,7 +47,7 @@ function Log() {
   return (
     <div className='login-form'>
       <form onSubmit={handleLogin} id='new_user_session'>
-        <h1> {t('seCo')} </h1>
+        <h1 className="title-pages"> {t('seCo')} </h1>
         {error && <p>{error}</p>}
         <div>
           <label htmlFor='email'> Email </label>

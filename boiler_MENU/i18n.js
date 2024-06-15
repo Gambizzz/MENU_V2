@@ -59,7 +59,7 @@ i18n
           "concept": "CONCEPT",
           "conceptTitle": "NOTRE CONCEPT",
           "contactTitle": "NOUS CONTACTER",
-          "teamTitle": "NOTRE ÉQUIPE",
+          "teamTitle": "NOTRE EQUIPE",
           "team": "TEAM",
           "contact": "CONTACT",
           "editProfileForm": "ÉDITER LE PROFIL",

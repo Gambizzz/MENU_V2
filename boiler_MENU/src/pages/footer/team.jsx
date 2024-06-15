@@ -6,7 +6,7 @@ const Team = () => {
 
     return(
         <>
-        <h1> {t('teamTitle')} </h1>
+        <h1 className="title-pages"> {t('teamTitle')} </h1>
         </>
     )
 }

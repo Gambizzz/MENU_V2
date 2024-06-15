@@ -8,7 +8,7 @@ const Concept = () => {
 
     return(
         <>
-        <h1> {t('conceptTitle')} </h1>
+        <h1 className="title-pages"> {t('conceptTitle')} </h1>
         </>
     )
 }

@@ -39,7 +39,7 @@ const ForgotPassword = () => {
 
   return (
     <div className='forgot-pass'>
-      <h1> {t('forgotPass')} </h1>
+      <h1 className="title-pages"> {t('forgotPass')} </h1>
       <form onSubmit={handleSubmit} className='forgot-form'>
         <label htmlFor="email"> Email </label>
         <input

@@ -7,7 +7,7 @@ const Restaurants = () => {
   
     return(
         <>
-        <h1> {t('titleRestau')} </h1>
+        <h1 className="title-pages"> {t('titleRestau')} </h1>
         <Link to="/details" > <p> VOIR le resto!!! </p> </Link>
         </>
     )

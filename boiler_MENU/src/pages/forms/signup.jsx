@@ -51,7 +51,7 @@ function Sign() {
 
   return (
     <form onSubmit={handleSubmit} className='login-form' id='new_user'>
-      <h1> {t('signupForm')} </h1>
+      <h1 className="title-pages"> {t('signupForm')} </h1>
       {error && <p>{error}</p>}
       <div>
         <label htmlFor='email'> Email </label>
