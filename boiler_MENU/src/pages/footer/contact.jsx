@@ -6,7 +6,10 @@ const Contact = () => {
 
     return(
         <>
-        <h1 className="title-pages"> {t('contactTitle')} </h1>
+        <div className="page-header">
+          <h1 className="title-pages"> {t('contactTitle')} </h1>
+          <h2> {t('contact-slogan')} </h2>
+        </div>
         </>
     )
 }

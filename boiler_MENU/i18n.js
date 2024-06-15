@@ -44,6 +44,9 @@ i18n
           "confirmNewPass": "New password confirmation",
           "reset": "RESET",
           "titleRestau": "ALL RESTAURANTS",
+          "sloganConcept": "It has never been easier to find what you are going to eat",
+          "team-slogan": "Here are our awesome team members",
+          "contact-slogan": "If you have a question, we are here to answer it",
         }
       },
       fr: {
@@ -86,6 +89,9 @@ i18n
           "confirmNewPass": "Confirmer le nouveau mot de passe",
           "reset": "RÉINITIALISATION",
           "titleRestau": "TOUS LES RESTAURANTS",
+          "sloganConcept": "Il n'a jamais été aussi simple de trouver ce que vous allez manger",
+          "team-slogan": "Voici les supers membres de notre équipe",
+          "contact-slogan": "Si vous avez une question, nous sommes là pour y répondre",
         }
       }
     },

@@ -8,7 +8,10 @@ const Concept = () => {
 
     return(
         <>
-        <h1 className="title-pages"> {t('conceptTitle')} </h1>
+        <div className="page-header">
+          <h1 className="title-pages"> {t('conceptTitle')} </h1>
+          <h2> {t('sloganConcept')} </h2>
+        </div>
         </>
     )
 }
