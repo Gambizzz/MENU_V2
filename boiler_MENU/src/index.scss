@@ -119,6 +119,43 @@ html.nuit .drop-text:hover {
   background-color: $title-icons-night;
   color: $bg-night;
 }
+
+html.nuit .card-front-concept {
+  background-color: $title-icons-night;
+  border-color: $title-icons-night;
+  color: $bg-night;
+}
+
+html.nuit .card-back-concept {
+  background-color: $bg-light-font-night;
+  border-color: $bg-light-font-night;
+  color: $bg-night;
+}
+
+html.nuit .card-team {
+  background-color: $bg-night;
+  border-color: $title-icons-night;
+}
+
+html.nuit .card-title-team {
+  color: $bg-light-font-night;
+}
+
+html.nuit .card-subtitle-team {
+  color: $title-icons-night;
+}
+
+html.nuit .card-social__item svg {
+  fill: $bg-light-font-night;
+}
+
+html.nuit .card-social__item svg:hover {
+  fill: $title-icons-night;
+}
+
+html.nuit .card-avatar-team {
+  background: linear-gradient(to top, $title-icons-night 0%, #fcbc97 100%);
+}
 /* END NIGHT THEME STYLES */
 
 
@@ -393,12 +430,13 @@ li {
 
 /* START FOOTER */
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 10%;
 
   p {
     margin-top: 2%;
@@ -445,6 +483,333 @@ li {
 
 
 
+/* START PAGE CONCEPT */
+.concept-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+
+.card-concept {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner-concept {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card-concept:hover .card-inner-concept {
+  transform: rotateY(180deg);
+}
+
+.card-front-concept,
+.card-back-concept {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front-concept {
+  background-color: $title-icons-light;
+  color: $bg-light-font-night;
+  display: flex;
+  align-items: center;
+  border: 10px solid $title-icons-light;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+}
+
+.card-back-concept {
+  background-color: $font-light;
+  color: $bg-light-font-night;
+  display: flex;
+  align-items: center;
+  border: 10px solid $font-light;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(180deg);
+
+  p {
+    text-align: center;
+  }
+}
+/* END PAGE CONCEPT */
+
+
+
+/* START PAGE TEAM */
+.team-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+
+.card-team {
+  width: 250px;
+  height: 340px;
+  background: $bg-light-font-night;
+  border: 1px solid $title-icons-light;
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  transition: box-shadow .3s ease, transform .2s ease;
+ }
+ 
+ .card-info-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  transition: transform .2s ease, opacity .2s ease;
+ }
+ 
+ /*Image*/
+ .card-avatar-team {
+  --size: 90px;
+  background: linear-gradient(to top, $title-icons-light 0%, #fcbc97 100%);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  transition: transform .2s ease;
+  margin-bottom: 1rem;
+ }
+ 
+ /*Card footer*/
+ .card-social {
+  transform: translateY(200%);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  opacity: 0;
+  transition: transform .2s ease, opacity .2s ease;
+ }
+ 
+ .card-social__item svg {
+  display: block;
+  height: 18px;
+  width: 18px;
+  fill: $font-light;
+  cursor: pointer;
+  transition: fill 0.2s ease ,transform 0.2s ease;
+ }
+ 
+ /*Text*/
+ .card-title-team {
+  color: $font-light;
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 2rem;
+ }
+ 
+ .card-subtitle-team {
+  color: $title-icons-light;
+  font-size: 1em;
+ }
+ 
+ /*Hover*/
+ .card-team:hover {
+  box-shadow: 0 8px 50px #23232333;
+ }
+ 
+ .card-team:hover .card-info-team {
+  transform: translateY(-5%);
+ }
+ 
+ .card-team:hover .card-social {
+  transform: translateY(100%);
+  opacity: 1;
+ }
+ 
+ .card-social__item svg:hover {
+  fill: $title-icons-light;
+  transform: scale(1.1);
+ }
+ 
+ .card-avatar-team:hover {
+  transform: scale(1.1);
+ }
+/* END PAGE TEAM */
+
+
+
+/* START PAGE CONTACT */
+.full-contact {
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: end;
+  flex: 1;
+  margin-right: 30%;
+}
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: transparent;
+  border: solid 1px $title-icons-light;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+html.nuit .form-contact {
+  border: solid 1px $title-icons-night;
+}
+
+.flex-contact {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form-contact label {
+  position: relative;
+}
+
+.form-contact label input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid $font-light;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+html.nuit .form-contact label input {
+  border: 1px solid $bg-light-font-night;
+}
+
+.form-contact label input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: $font-light;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+html.nuit .form-contact label input + span {
+  color: $title-icons-night;
+}
+
+.form-contact label input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form-contact label input:focus + span,
+.form-contact label input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form-contact label input:valid + span {
+  color: $title-icons-light;
+}
+
+html.nuit .form-contact label input:valid + span {
+  color: $title-icons-night;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid $font-light;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+html.nuit textarea {
+  border: 1px solid $bg-light-font-night;
+}
+
+.form-contact label textarea + span {
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form-contact label textarea:placeholder-shown + span {
+  top: 40px;
+  font-size: 0.9em;
+}
+
+.form-contact label textarea:focus + span,
+.form-contact label textarea:valid + span {
+  top: 50px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form-contact label textarea:valid + span {
+  color: $title-icons-light;
+}
+
+html.nuit .form-contact label textarea:valid + span {
+  color: $title-icons-night;
+}
+
+.coord-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 350px;
+  flex: 1;
+  margin-right: 15%;
+}
+
+.ref-contact p {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+  align-items: center;
+  
+  .icon {
+    color: $title-icons-light;
+  }
+}
+
+html.nuit .ref-contact p {
+  .icon {
+    color: $title-icons-night;
+  }
+}
+
+html.nuit .form-contact button {
+  color: $title-icons-night;
+}
+/* END PAGE CONTACT */
+
+
+
+
+
+/* START GENERALS */
 .title-pages {
   font-family: $title-font;
   font-size: 40px;
@@ -462,12 +827,7 @@ li {
   margin-top: 4%;
   margin-bottom: 4%;
 }
-
-
-
-
-
-
+/* END GENERALS */
 
 
 
@@ -545,6 +905,16 @@ li {
 
   li {
     padding: 5px;
+  }
+
+  .concept-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-concept {
+    margin-bottom: 5%;
   }
 }
 /* END MEDIA QUERY */
