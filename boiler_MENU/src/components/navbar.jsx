@@ -53,7 +53,9 @@ const Nav = ({ toggleTheme }) => {
         </label>
         <div className='nav-links'>
           <Link to="/restaurants"> <p> RESTAURANTS </p> </Link>
+          <div>
           <Link to="/"> <img src={isNightMode ? logoNavNuit : logoNavJour} alt='Logo navbar' /> </Link>
+          </div>
           <Dropdown className='btn-dropdown'>
             <Dropdown.Toggle className='gold log'> {t('connexion')} </Dropdown.Toggle>
             <Dropdown.Menu className='drop-box'>
