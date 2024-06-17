@@ -9,7 +9,7 @@ const AdminProfile = () => {
 
   return (
     <div>
-      <h2> MON ESPACE RESTAURATEUR </h2>
+      <h1 className="title-pages"> {t('titleSpaceAdmin')} </h1>
       <p>{t('email')} : {user.email} </p>
       <p>{t('id')} : {user.id}</p>
     </div>
