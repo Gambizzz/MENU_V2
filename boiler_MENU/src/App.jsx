@@ -1,24 +1,45 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { nightModeAtom, dyslexicModeAtom } from './atoms';
+import { nightModeAtom, dyslexicModeAtom, userAtom } from './atoms';
+import Cookies from 'js-cookie';
 import './index.scss';
-import Restaurants from './pages/restaurant/listeRestaurants';
 import Log from './pages/forms/login';
 import Sign from './pages/forms/signup';
 import Edit from './pages/forms/edit';
+import Logout from './components/logout';
+import ResetPassword from './pages/forms/resetPassword';
+import ForgotPassword from './pages/forms/forgotPassword';
 import Home from './pages/home/home';
 import Nav from './components/navbar';
+import Sidebar from './components/sidebar';
 import Footer from './components/footer';
 import Concept from './pages/footer/concept';
 import Team from './pages/footer/team';
 import Contact from './pages/footer/contact';
+import Restaurants from './pages/restaurant/listeRestaurants';
 import Details from './pages/restaurant/detailsRestaurant';
-import Sidebar from './components/sidebar';
+
 
 function App() {
   const [isNightMode, setIsNightMode] = useAtom(nightModeAtom);
   const [isDyslexicMode, setIsDyslexicMode] = useAtom(dyslexicModeAtom);
+  const [, setUser] = useAtom(userAtom);
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    const userId = Cookies.get('id');
+
+    if (token && userId) {
+      setUser({
+        email: "",
+        id: userId,
+        token: token,
+        isLoggedIn: true,
+      });
+    }
+  }, [setUser]);
 
   const toggleTheme = () => {
     setIsNightMode(!isNightMode);
@@ -41,16 +62,19 @@ function App() {
       </header>
 
       <Routes>
-        {/* routes NAV */}
-        <Route path='/restaurants' element={<Restaurants />} />
+        {/* routes NAV/FORMS */}
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Log />} />
         <Route path='/signup' element={<Sign />} />
+        <Route path='/logout' element={<Logout />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/reset-password/:token' element={<ResetPassword />} />
         {/* routes Footer */}
         <Route path='/concept' element={<Concept />} />
         <Route path='/team' element={<Team />} />
         <Route path='/contact' element={<Contact />} />
-        {/* routes detailsRestaurant */}
+        {/* routes restaurants */}
+        <Route path='/restaurants' element={<Restaurants />} />
         <Route path='/details' element={<Details />} />
         {/* route edit profile */}
         <Route path='/edit' element={<Edit />} />
