@@ -44,6 +44,11 @@ function AdminSign() {
 
       Cookies.set('adminToken', token);
       Cookies.set('adminId', admin.id);
+      Cookies.set('adminEmail', admin.email);
+
+      setEmail('');
+      setPassword('');
+      setPasswordConfirmation('');
       
       window.location.href = "/";
     } catch (error) {

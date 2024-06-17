@@ -38,6 +38,7 @@ function AdminLog() {
 
       Cookies.set('adminToken', token);
       Cookies.set('adminId', admin.id);
+      Cookies.set('adminEmail', admin.email);
       
       window.location.href = "/";
     } catch (error) {
