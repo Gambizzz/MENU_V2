@@ -7,5 +7,11 @@ Rails.application.routes.draw do
     passwords: "users/passwords" 
   }
 
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions",
+    registrations: "admins/registrations",
+    passwords: "admins/passwords" 
+  }
+
   get "up" => "rails/health#show", as: :rails_health_check
 end
