@@ -915,3 +915,30 @@ html.nuit .form-contact button {
   }
 }
 /* END MEDIA QUERY */
+
+/* card de la carte */ 
+
+
+.card-fromeditor {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  position: absolute;
+  left: 20px;
+  bottom: 280px;
+}
+
+.card-fromeditor h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.card p {
+  margin: 0;
+}
+
+/* END card de la carte */
