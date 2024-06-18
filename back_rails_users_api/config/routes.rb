@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   post '/api/save-text', to: 'api/texts#create'
 
   namespace :api do
-    resources :texts, only: [:create]  
+    resources :texts, only: [:create]
+    get 'latest-text', to: 'texts#show_latest'
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

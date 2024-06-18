@@ -1,8 +1,7 @@
 # app/controllers/api/texts_controller.rb
 module Api
   class TextsController < ApplicationController
- 
-
+    # Action pour créer un nouveau texte
     def create
       # Extrait et autorise les paramètres nécessaires à partir de `params`
       text_params = params.permit(:text)  # Autorise uniquement le paramètre `text`
@@ -19,6 +18,15 @@ module Api
         render json: { error: 'Failed to save text' }, status: :unprocessable_entity
       end
     end
+
+    # Action pour afficher le dernier texte sauvegardé
+    def show_latest
+      @text = Text.last
+      if @text
+        render json: { text: @text.content }
+      else
+        render json: { error: 'No text found' }, status: :not_found
+      end
+    end
   end
 end
-
