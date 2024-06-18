@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
+  get 'cities', to: "home#index"
 
   devise_for :users, controllers: {
     sessions: "users/sessions",

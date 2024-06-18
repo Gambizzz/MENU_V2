@@ -1,5 +1,5 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+import CitiesList from "../../components/cities";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -7,6 +7,7 @@ const Home = () => {
     return(
         <>
         <h1> PAGE D'ACCUEIL </h1>
+        <CitiesList/>
         </>
     )
 }

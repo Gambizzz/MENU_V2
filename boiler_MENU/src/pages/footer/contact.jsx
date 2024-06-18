@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { PiBuildingOfficeFill } from "react-icons/pi";
 import { FaPhone } from "react-icons/fa6";

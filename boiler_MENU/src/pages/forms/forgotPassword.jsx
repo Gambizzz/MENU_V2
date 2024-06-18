@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ky from 'ky';
 import { useTranslation } from 'react-i18next';
 
