@@ -922,22 +922,22 @@ html.nuit .form-contact button {
 .card-fromeditor {
   background-color: white;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
-  width: 300px;
+  width: 400px;
   position: absolute;
   left: 20px;
-  bottom: 280px;
+  bottom: 0px;
 }
 
 .card-fromeditor h1 {
   font-size: 1.5em;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
-.card p {
+.card-fromeditor p {
   margin: 0;
 }
 
