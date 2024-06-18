@@ -1,5 +1,7 @@
+// src/components/Details.jsx
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import '../../index.scss';
 
 const Details = () => {
   const { t } = useTranslation();
@@ -25,8 +27,8 @@ const Details = () => {
   };
 
   return (
-    <div>
-      <h1>{t("restaurantDetailsPageTitle")}</h1>
+    <div className="card-fromeditor">
+      <h1><strong>{t("MON RESTAURANT")}</strong></h1>
       {error ? (
         <p>{error}</p>
       ) : (
@@ -37,3 +39,4 @@ const Details = () => {
 };
 
 export default Details;
+
