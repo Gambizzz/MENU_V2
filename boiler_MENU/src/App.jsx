@@ -86,7 +86,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         {/* routes RESTAURANTS */}
         <Route path='/restaurants' element={<Restaurants />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/restaurant/:id' element={<Details />} />
         <Route path='/create-restaurant' element={<CreateRestaurant />} />
         {/* route EDIT PROFILE */}
         <Route path='/edit' element={<Edit />} />

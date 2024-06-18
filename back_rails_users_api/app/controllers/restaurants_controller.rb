@@ -6,6 +6,11 @@ class RestaurantsController < ApplicationController
     render json: @restaurants
   end
 
+  def show
+    @restaurant = current_admin.restaurants.find(params[:id])
+    render json: @restaurant
+  end
+
   def create
     restaurant = Restaurant.new(restaurant_params)
     restaurant.admin_id = current_admin.id
