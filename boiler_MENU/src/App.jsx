@@ -25,6 +25,7 @@ import AdminSign from './pages/forms/adminSignup';
 import AdminLogout from './components/adminLogout';
 import UserProfile from './pages/profiles/userProfile';
 import AdminProfile from './pages/profiles/adminProfile';
+import CreateRestaurant from './pages/restaurant/createRestaurant';
 
 function App() {
   const [isNightMode, setIsNightMode] = useAtom(nightModeAtom);
@@ -85,7 +86,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         {/* routes RESTAURANTS */}
         <Route path='/restaurants' element={<Restaurants />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/restaurant/:id' element={<Details />} />
+        <Route path='/create-restaurant' element={<CreateRestaurant />} />
         {/* route EDIT PROFILE */}
         <Route path='/edit' element={<Edit />} />
         {/* route Profil USER */}
