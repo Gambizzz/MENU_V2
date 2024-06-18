@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { userAtom } from '../../atoms';
 import { useTranslation } from 'react-i18next';
-import CKEditorComponent from '/Users/nicolasbaldo/Desktop/Menuuuu/MENU_V2/boiler_MENU/src/components/CKEditorComponent.jsx';
+import CKEditorComponent from '../../components/CKEditorComponent';
 
 const AdminProfile = () => {
   const [user] = useAtom(userAtom);
@@ -10,19 +10,25 @@ const AdminProfile = () => {
   const [editorData, setEditorData] = useState('');
 
   const handleSave = async () => {
-    const response = await fetch('/api/save-text', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ text: editorData })
-    });
-    if (response.ok) {
-      alert('Text saved successfully');
-    } else {
-      alert('Failed to save text');
+    try {
+      const response = await fetch('http://localhost:3000/api/save-text', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: editorData })
+      });
+      if (response.ok) {
+        alert('Text saved successfully');
+      } else {
+        alert('Failed to save text');
+      }
+    } catch (error) {
+      console.error('Error saving text:', error);
+      alert('Failed to save text. Please try again.');
     }
   };
+  
 
   return (
     <div>
@@ -30,14 +36,14 @@ const AdminProfile = () => {
       <p>{t('email')} : {user.email}</p>
       <p>{t('id')} : {user.id}</p>
       
-      <h1>Admin Page</h1>
+      <h2>{t('adminPageTitle')}</h2>
       <CKEditorComponent
         data={editorData}
         onChange={setEditorData}
       />
-      <button onClick={handleSave}>Save</button>
+      <button onClick={handleSave}>{t('saveButton')}</button>
     </div>
   );
-}
+};
 
 export default AdminProfile;

@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     registrations: "admins/registrations",
     passwords: "admins/passwords"
   }
+  
+  post '/api/save-text', to: 'api/texts#create'
 
   namespace :api do
-    resources :texts, only: [:create]
+    resources :texts, only: [:create]  
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

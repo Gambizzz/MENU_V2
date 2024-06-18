@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -9,8 +9,8 @@ const CKEditorComponent = ({ onChange, data }) => {
         editor={ClassicEditor}
         data={data}
         onChange={(event, editor) => {
-          const data = editor.getData();
-          onChange(data);
+          const newData = editor.getData();
+          onChange(newData);
         }}
       />
     </div>
@@ -18,3 +18,4 @@ const CKEditorComponent = ({ onChange, data }) => {
 };
 
 export default CKEditorComponent;
+
