@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     passwords: "admins/passwords" 
   }
 
+  resources :restaurants
+
+
   get "up" => "rails/health#show", as: :rails_health_check
 end
