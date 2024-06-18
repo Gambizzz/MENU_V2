@@ -20,7 +20,11 @@ import Team from './pages/footer/team';
 import Contact from './pages/footer/contact';
 import Restaurants from './pages/restaurant/listeRestaurants';
 import Details from './pages/restaurant/detailsRestaurant';
-
+import AdminLog from './pages/forms/adminLogin';
+import AdminSign from './pages/forms/adminSignup';
+import AdminLogout from './components/adminLogout';
+import UserProfile from './pages/profiles/userProfile';
+import AdminProfile from './pages/profiles/adminProfile';
 
 function App() {
   const [isNightMode, setIsNightMode] = useAtom(nightModeAtom);
@@ -28,8 +32,9 @@ function App() {
   const [, setUser] = useAtom(userAtom);
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    const userId = Cookies.get('id');
+    const token = Cookies.get('token') || Cookies.get('adminToken');
+    const userId = Cookies.get('id') || Cookies.get('adminId');
+    const isAdmin = !!Cookies.get('adminToken');
 
     if (token && userId) {
       setUser({
@@ -37,6 +42,7 @@ function App() {
         id: userId,
         token: token,
         isLoggedIn: true,
+        isAdmin: isAdmin,
       });
     }
   }, [setUser]);
@@ -62,22 +68,30 @@ function App() {
       </header>
 
       <Routes>
-        {/* routes NAV/FORMS */}
+        {/* routes pour le USER */}
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Log />} />
         <Route path='/signup' element={<Sign />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/reset-password/:token' element={<ResetPassword />} />
-        {/* routes Footer */}
+        {/* Routes pour l'ADMIN */}
+        <Route path='/admin/login' element={<AdminLog />} />
+        <Route path='/admin/signup' element={<AdminSign />} />
+        <Route path='/admin/logout' element={<AdminLogout />} />
+        {/* routes FOOTER */}
         <Route path='/concept' element={<Concept />} />
         <Route path='/team' element={<Team />} />
         <Route path='/contact' element={<Contact />} />
-        {/* routes restaurants */}
+        {/* routes RESTAURANTS */}
         <Route path='/restaurants' element={<Restaurants />} />
         <Route path='/details' element={<Details />} />
-        {/* route edit profile */}
+        {/* route EDIT PROFILE */}
         <Route path='/edit' element={<Edit />} />
+        {/* route Profil USER */}
+        <Route path='/profile' element={<UserProfile />} />
+        {/* route Profil ADMIN */}
+        <Route path='/admin/profile' element={<AdminProfile />} />
       </Routes>
 
       <footer>
@@ -88,3 +102,5 @@ function App() {
 }
 
 export default App;
+
+
